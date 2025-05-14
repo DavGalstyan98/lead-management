@@ -66,7 +66,7 @@ const LeadFormPage = () => {
 
       setSubmitted(true);
     } catch (err) {
-      alert("An unexpected error occurred.");
+      alert(err);
     }
   };
 
