@@ -41,6 +41,8 @@ cd lead-management
 - Go to: `/admin/login`
 - **Password**: `admin123`
 
+- Live URL - https://lead-management-puce.vercel.app 
+
 Once logged in, you will be redirected to the dashboard where you can:
 - View all submitted leads
 - See submission time and status
@@ -60,3 +62,5 @@ Once logged in, you will be redirected to the dashboard where you can:
    - Status displayed (`PENDING` / `REACHED_OUT`)
    - Country and email included
 5. - Admin can click **“Mark as Reached Out”** to update a lead’s status.
+
+
