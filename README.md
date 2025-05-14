@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 Lead Management Frontend
 
-## Getting Started
+A full-featured Lead Management application built with **Next.js**, **Supabase**, **Tailwind CSS**, and **React Hook Form**.
 
-First, run the development server:
+It provides a public-facing form for lead submission and a secure internal admin dashboard to review and manage submissions.
+
+---
+
+## - Features
+
+- Public lead form with validation and resume upload
+- Admin login with password protection
+- Internal dashboard for lead review and status updates
+-  Update lead status from `PENDING` to `REACHED_OUT`
+- Supabase for real-time data storage
+- Unit tests with Jest & React Testing Library
+- Responsive UI using Tailwind CSS
+
+---
+
+## - Tech Stack
+
+- **Framework**: Next.js 15
+- **Styling**: Tailwind CSS
+- **Database & Storage**: Supabase
+- **Forms**: React Hook Form + Yup
+- **Auth**: Custom password-based mock login
+- **Testing**: Jest + Testing Library
+
+---
+
+## - Getting Started
+
+### 1. Clone the Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+git clone https://github.com/DavGalstyan98/lead-management.git
+cd lead-management
+## - Admin Access
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Go to: `/admin/login`
+- **Password**: `admin123`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Once logged in, you will be redirected to the dashboard where you can:
+- View all submitted leads
+- See submission time and status
+- Mark any `PENDING` lead as `REACHED_OUT`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+> The admin login uses client-side password logic for simplicity (no Supabase Auth required).
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+##  Application Flow
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **User goes to** `/public/lead-form` and fills out their information.
+2. - Upon submission, data is stored in Supabase and confirmation is shown.
+3. - Admin logs in at `/admin/login` using the password (`admin123`).
+4. - Admin views all leads in `/admin/leads`:
+   - Sorted by `submitted_at` (latest first)
+   - Status displayed (`PENDING` / `REACHED_OUT`)
+   - Country and email included
+5. - Admin can click **“Mark as Reached Out”** to update a lead’s status.
